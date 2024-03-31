@@ -5,6 +5,7 @@
 body{
     margin: 0;
     padding: 0;
+    color: rgb(63, 63, 63);
 }
 /* Modale */
 body .modal{
@@ -13,15 +14,16 @@ body .modal{
         top: 20px;
         left: 0;
         right: 0;
-        bottom: 100px;
+        bottom: 90px;
     background-color: white;
     width: 80%;
     max-width: 500px;
     min-height: 300px;
-    max-height: 400px;
+    max-height: 440px;
     border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 15px 5px #000000; 
-    box-shadow: 0px 0px 15px 5px #000000;
+    border: solid #c0c0c0 1px;
+    -webkit-box-shadow: 0px 0px 15px 5px #c0c0c0; 
+    box-shadow: 0px 0px 15px 5px #c0c0c0;
     z-index: 1;
 }
 /* Form */
@@ -42,4 +44,28 @@ form select{
     padding-bottom: 3px;
     padding-left: 6px;
     padding-right: 6px;
+    font-weight: 500;
+}
+.divider{
+    width: 97%;
+    height: 3px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+    margin: 1rem auto;
+
+}
+
+/* Pseudo classi: */
+.btn:hover{
+    background-color: rgb(63, 63, 63);
+    color: white;
+}
+.btn:active{
+    background-color: black;
+}
+.close-btn:hover{
+    color: red;
+}
+.close-btn:active{
+    color: rgb(189, 0, 0);
 }

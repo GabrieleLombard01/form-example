@@ -24,13 +24,20 @@ export class FormComponent implements OnInit {
     });
   }
 
+  closeModal() {
+    const modal = document.querySelector('.modal');
+    if (modal) {
+      modal.classList.add('hidden');
+    }
+  }
+
   submitForm(): void {
     if (this.CFform.valid) {
       const formValues = this.CFform.value;
       const { name, surname, loc, prov, sex, date } = formValues;
       this.saveData(name, surname, loc, prov, sex, date);
     } else {
-      // Gestisci il caso in cui il form non sia valido
+      
     }
   }
 
@@ -42,6 +49,7 @@ export class FormComponent implements OnInit {
     const monthLetter = this.getMonthLetter(month);
     const day = date.substring(8, 10);
     const lastChar = "N";
+    const cf = document.getElementById('cf');
 
     let dayNumber = parseInt(day, 10);
     if (sex.toUpperCase() === 'F') {
@@ -56,7 +64,9 @@ export class FormComponent implements OnInit {
 
     const comuneCode = this.getComuneCode(loc);
 
-    console.log("CF-> ", surnameInitials + nameInitials + yearLastTwoDigits + monthLetter + dayNumber + comuneCode + lastChar);
+    cf!.innerHTML = surnameInitials + nameInitials + yearLastTwoDigits + monthLetter + dayNumber + comuneCode + lastChar;
+
+    this.closeModal();
   }
 
   getSurnameInitials(surname: string): string {
