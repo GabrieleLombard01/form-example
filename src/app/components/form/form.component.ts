@@ -24,6 +24,15 @@ export class FormComponent implements OnInit {
     });
   }
 
+  // TO DO: ----------------------------------------
+  showCopyBtn() {
+    const copyBtn = document.getElementById('copy');
+    if (copyBtn) {
+      copyBtn.classList.remove('hidden');
+    }
+  }
+  //-------------------------------------------------
+
   closeModal() {
     const modal = document.querySelector('.modal');
     if (modal) {
@@ -66,7 +75,9 @@ export class FormComponent implements OnInit {
 
     cf!.innerHTML = surnameInitials + nameInitials + yearLastTwoDigits + monthLetter + dayNumber + comuneCode + lastChar;
 
+    this.showCopyBtn();
     this.closeModal();
+
   }
 
   getSurnameInitials(surname: string): string {
@@ -160,4 +171,31 @@ export class FormComponent implements OnInit {
       return 'XXXX';
     }
   }
+  
+  // TO DO:
+  // calcolaCodiceControllo(codiceFiscaleParziale: string): string {
+  //   const caratteriDispari = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  //   const caratteriPari = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  //   const posizioniPari = [1, 0, 5, 7, 9, 13, 15, 17, 19, 21];
+  //   const posizioniDispari = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+
+  //   let somma = 0;
+  //   for (let i = 0; i < posizioniPari.length; i++) {
+  //     let posizione = posizioniPari[i];
+  //     let carattere = codiceFiscaleParziale[posizione];
+  //     let valore = caratteriPari.indexOf(carattere);
+  //     somma += valore;
+  //   }
+
+  //   for (let i = 0; i < posizioniDispari.length; i++) {
+  //     let posizione = posizioniDispari[i];
+  //     let carattere = codiceFiscaleParziale[posizione];
+  //     let valore = caratteriDispari.indexOf(carattere);
+  //     somma += valore;
+  //   }
+
+  //   const resto = somma % 26;
+  //   const carattereControllo = caratteriPari[resto];
+  //   return carattereControllo;
+  // }
 }
